@@ -11,6 +11,6 @@ func rootHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func Serve() {
-	http.HandleFunc("/", rootHandler)
+	http.HandleFunc("/coffee/reviews/", reviewHandler)
 	http.ListenAndServe(":8082", nil)
 }

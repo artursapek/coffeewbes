@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/coffee/styles.css" />
+    <title>{{ .Title }}</title>
+  </head>
+  <body>
+    <header>
+      <a id="home-link" href="/coffee">&larr; Coffee home</a>
+      <h1>{{ .Title }}</h1>
+      <h2>
+        <span class='review'>{{ .Score }}</span> <span class='location'>{{ .Location }}</span>
+      </h2>
+
+        {{ range $i, $thought := $.Thoughts }}
+        <p>
+          {{ $thought.Body }}
+        </p>
+        {{ end }}
+    </header>
+  </body>
+</html>
