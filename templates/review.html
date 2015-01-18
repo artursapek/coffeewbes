@@ -2,9 +2,46 @@
   <head>
     <link rel="stylesheet" href="/coffee/styles.css" />
     <title>{{ .Title }}</title>
+
+    <style>
+      body {
+        width: 700px;
+      }
+
+
+      img {
+        max-width: 700px;
+      }
+
+      p {
+        margin: 0 0 10px 0;
+      }
+
+      header {
+        display: block;
+        margin-bottom: 40px;
+      }
+
+      #home-link {
+        float: right;
+      }
+
+      .best-new-espresso {
+        color: #ef4135;
+        border-color: #ef4135;
+      }
+
+      .review {
+        border: 4px solid;
+        padding: 4px;
+      }
+
+      .location { 
+        float: right;
+      }
+    </style>
   </head>
   <body>
-    <header>
       <a id="home-link" href="/coffee">&larr; Coffee home</a>
       <h1>{{ .Title }}</h1>
       <h2>
@@ -12,10 +49,12 @@
       </h2>
 
         {{ range $i, $thought := $.Thoughts }}
-        <p>
-          {{ $thought.Body }}
-        </p>
+          <p>
+            {{ $thought.Body }}
+          </p>
+          {{ range $i, $pic := $thought.Pics }}
+            <p><img src="{{ $pic.Path }}" /></p>
+          {{ end }}
         {{ end }}
-    </header>
   </body>
 </html>
